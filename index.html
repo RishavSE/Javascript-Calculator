@@ -41,6 +41,16 @@
           <input type="button" value="00" onclick="display.value +='00'">
           <input type="button" value="0" onclick="display.value +='0'">
           <input type="button" value="="  onclick=" display.value= eval(display.value)"    class="equal operator"  >
+          <script>
+  let display = document.getElementById("display");
+
+  display.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // stops form submission if inside a form
+      display.value = eval(display.value);
+    }
+  });
+</script>
         </div>
         </form>
       </div>
