@@ -1,52 +1,94 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
-.container{
+.container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: #e3f9ff;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 15px;
 }
-.calculator{
+
+.calculator {
+  width: min(100%, 380px);
   background: #3a4552;
-  padding: 20px;
+  padding: clamp(12px, 4vw, 20px);
   border-radius: 10px;
 }
-.calculator form input{
+
+.calculator form {
+  width: 100%;
+}
+
+.calculator form input {
   border: 0;
-  height: 60px;
   outline: 0;
-  width: 60px;
+
+  /* Responsive button size */
+  width: clamp(50px, 15vw, 60px);
+  height: clamp(50px, 15vw, 60px);
+
   border-radius: 10px;
-  box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    -8px -8px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.2);
+
   background: transparent;
-  font-size: 20px;
+  font-size: clamp(17px, 5vw, 20px);
   color: #fff;
   cursor: pointer;
-  margin: 10px;
+
+  /* Smaller spacing on small screens */
+  margin: clamp(4px, 1.5vw, 10px);
 }
-.display{
+
+.display {
   display: flex;
   justify-content: flex-end;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
-form .display input{
+form .display input {
   text-align: right;
-  flex:  1;
-  font-size: 45px;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  font-size: clamp(32px, 10vw, 45px);
   box-shadow: none;
-}
-form input.equal{
-  width: 145px;
+  margin: 0;
 }
 
-form input.operator{
+form input.equal {
+  width: clamp(120px, 38vw, 145px);
+}
+
+form input.operator {
   color: #33ffd8;
+}
+
+@media (max-width: 360px) {
+  .calculator {
+    padding: 10px;
+  }
+
+  .calculator form input {
+    width: 48px;
+    height: 48px;
+    margin: 4px;
+  }
+
+  form input.equal {
+    width: 112px;
+  }
+
+  form .display input {
+    font-size: 30px;
+  }
 }
