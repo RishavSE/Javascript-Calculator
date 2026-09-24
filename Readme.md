@@ -1,7 +1,7 @@
 🧮 JavaScript Calculator
 A simple and responsive calculator built using HTML, CSS, and JavaScript. This calculator performs basic arithmetic operations such as addition, subtraction, multiplication, and division. Ideal for learning DOM manipulation and event handling in JavaScript.
 
-🚀 Features
+Features:
 Perform basic arithmetic operations
 Responsive UI for different screen sizes
 Clear and reset functionality
@@ -15,15 +15,14 @@ JavaScript (Vanilla)
 
 You can run this project in two simple ways:
 
-✅ Option 1: Open Directly in Browser Clone or Download the Repository:
+ Option 1: Open Directly in Browser Clone or Download the Repository:
 
 bash Copy Edit git clone https://github.com/rishavSE/Javascript-calculator.git cd Javascript-calculator Open index.html in Your Browser:
 
 Simply double-click the index.html file, or
 
 Right-click and choose "Open with" → your browser.
-
-⚡ Option 2: Use Live Server in VS Code (Recommended) Open the folder in VS Code
+ Option 2: Use Live Server in VS Code (Recommended) Open the folder in VS Code
 
 Install the "Live Server" extension (if not already installed)
 
