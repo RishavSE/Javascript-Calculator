@@ -10,63 +10,76 @@
   min-height: 100vh;
   min-height: 100dvh;
   background: #e3f9ff;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 15px;
 }
 
 .calculator {
   width: min(100%, 380px);
   background: #3a4552;
-  padding: clamp(12px, 4vw, 20px);
+  padding: 20px;
   border-radius: 10px;
 }
 
 .calculator form {
   width: 100%;
+
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
-.calculator form input {
+
+.display {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: flex-end;
+
+  margin: 0 0 10px;
+}
+
+form .display input {
+  width: 100%;
+  min-width: 0;
+
+  text-align: right;
+  font-size: clamp(32px, 10vw, 45px);
+
   border: 0;
   outline: 0;
+  box-shadow: none;
+  margin: 0;
+}
 
-  /* Responsive button size */
-  width: clamp(50px, 15vw, 60px);
-  height: clamp(50px, 15vw, 60px);
+/* Buttons */
+.calculator form input {
+  width: 100%;
+  height: 60px;
 
+  border: 0;
+  outline: 0;
   border-radius: 10px;
+
   box-shadow:
     -8px -8px 15px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.2);
 
   background: transparent;
-  font-size: clamp(17px, 5vw, 20px);
+
+  font-size: 20px;
   color: #fff;
   cursor: pointer;
-
-  /* Smaller spacing on small screens */
-  margin: clamp(4px, 1.5vw, 10px);
-}
-
-.display {
-  display: flex;
-  justify-content: flex-end;
-  margin: 15px 0;
-}
-
-form .display input {
-  text-align: right;
-  flex: 1;
-  width: 100%;
-  min-width: 0;
-  font-size: clamp(32px, 10vw, 45px);
-  box-shadow: none;
-  margin: 0;
 }
 
 form input.equal {
-  width: clamp(120px, 38vw, 145px);
+  grid-column: span 2;
+  width: 100%;
 }
 
 form input.operator {
@@ -75,17 +88,16 @@ form input.operator {
 
 @media (max-width: 360px) {
   .calculator {
-    padding: 10px;
+    padding: 12px;
+  }
+
+  .calculator form {
+    gap: 8px;
   }
 
   .calculator form input {
-    width: 48px;
-    height: 48px;
-    margin: 4px;
-  }
-
-  form input.equal {
-    width: 112px;
+    height: 52px;
+    font-size: 17px;
   }
 
   form .display input {
