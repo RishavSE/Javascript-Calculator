@@ -78,6 +78,21 @@ form input.operator {
   color: #33ffd8;
 }
 
+@media (max-width: 480px) {
+  .calculator {
+    width: min(100%, 340px);
+    padding: 16px;
+  }
+
+  .calculator form input {
+    height: clamp(58px, 16vw, 68px);
+  }
+
+  form .display input {
+    height: clamp(58px, 16vw, 68px);
+  }
+}
+
 @media (max-height: 420px) and (orientation: landscape) {
   .container {
     align-items: flex-start;
