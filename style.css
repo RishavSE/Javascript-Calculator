@@ -13,7 +13,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
 }
 
 .calculator {
@@ -27,62 +28,75 @@
   width: 100%;
 }
 
-.calculator form input {
-  border: 0;
-  outline: 0;
-  width: clamp(50px, 15vw, 60px);
-  height: clamp(50px, 15vw, 60px);
-  border-radius: 10px;
-  box-shadow:
-    -8px -8px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.2);
-  background: transparent;
-  font-size: clamp(17px, 5vw, 20px);
-  color: #fff;
-  cursor: pointer;
-  margin: clamp(4px, 1.5vw, 10px);
-}
-
 .display {
   display: flex;
   justify-content: flex-end;
   margin: 15px 0;
 }
 
+.calculator form input {
+  border: 0;
+  outline: 0;
+  min-width: 0;
+  height: clamp(48px, 12vw, 60px);
+  border-radius: 10px;
+  box-shadow:
+    -8px -8px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  font-size: clamp(17px, 4.5vw, 20px);
+  color: #fff;
+  cursor: pointer;
+}
+
+.calculator form > div:not(.display) {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 2vw, 12px);
+  margin-top: clamp(8px, 2vw, 12px);
+}
+
+.calculator form > div:not(.display) input {
+  width: 100%;
+}
+
 form .display input {
-  text-align: right;
   flex: 1;
   width: 100%;
   min-width: 0;
-  font-size: clamp(32px, 10vw, 45px);
+  text-align: right;
+  font-size: clamp(30px, 9vw, 45px);
   box-shadow: none;
-  margin: 0;
+  cursor: text;
 }
 
 form input.equal {
-  width: clamp(120px, 38vw, 145px);
+  grid-column: span 2;
 }
 
 form input.operator {
   color: #33ffd8;
 }
 
-@media (max-width: 360px) {
+@media (max-height: 420px) and (orientation: landscape) {
+  .container {
+    align-items: flex-start;
+  }
+
   .calculator {
     padding: 10px;
   }
 
+  .display {
+    margin: 8px 0;
+  }
+
   .calculator form input {
-    width: 48px;
-    height: 48px;
-    margin: 4px;
+    height: 44px;
   }
 
-  form input.equal {
-    width: 112px;
-  }
-
-  form .display input {
-    font-size: 30px;
+  .calculator form > div:not(.display) {
+    gap: 6px;
+    margin-top: 6px;
   }
 }
