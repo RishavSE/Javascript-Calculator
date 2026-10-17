@@ -175,8 +175,4 @@ This project helps demonstrate:
   <b>🧮 Simple. Practical. Accessible.</b>
 </p>
 
-<h2 align="center">📜 License</h2>
-
-<p align="center">
-  Add your chosen license to the repository if you intend to distribute the project under specific open-source terms.
-</p>
+<h2 align="center">📜 Licensed</h2>
